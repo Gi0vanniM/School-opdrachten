@@ -5,4 +5,4 @@ getal12 /= 5;
 getal12 -= 12;
 document.write(getal12);
 
-document.write(12+6*10/5-12);
+//document.write(12+6*10/5-12);
