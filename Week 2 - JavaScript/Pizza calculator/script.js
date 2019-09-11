@@ -17,7 +17,7 @@ document.getElementById("calc_button").onclick = calculate;
 function calculate() {
     // hier wordt de value van de gekozen pizza maat opgevraagd
     var a = document.getElementById("pizza_size");
-    var sizeV = a.options[a.selectedIndex].value;
+    var sizeV = a.value;
 
     // hier wordt de naam van de maat opgevraagd
     var a = document.getElementById("pizza_size");
@@ -25,7 +25,7 @@ function calculate() {
 
     // hier wordt het aantal pizza's opgevraagd
     var b = document.getElementById("pizza_amount");
-    var amount = b.options[b.selectedIndex].value;
+    var amount = b.value;
 
     // hier wordt de jusite prijs gepakt van de maat die gekozen is
     switch (sizeV) {
