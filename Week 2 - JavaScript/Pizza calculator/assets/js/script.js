@@ -49,8 +49,8 @@ function calculate() {
         // alert(total_price);
         document.write("<h2>Bestelling:</h2><br>"
             + "Maat: " + size + "<br>"
-            + "Aantal: " + amount + "<br>"
-            + "Prijs: €" + total_price);
+            + "Aantal: " + amount + "<br><br>"
+            + "Prijs: €" + total_price.toFixed(2));
     } else { // als de maat en/of aantal niet is opgegeven krijgt de gebruiker een alert
         alert("Je hebt de maat of aantal niet aangegeven.");
     }
