@@ -1,0 +1,26 @@
+.buttong .button{
+    /* padding: 15px 32px; */
+    width: 128px;
+    height: 64px;
+    border-radius: 8px;
+    background-color: dimgrey;
+    color: aliceblue;
+}
+body{
+    background-color: slategrey;
+}
+.buttong{
+    display: block;
+    text-align: center;
+}
+input{
+    width: 50%;
+    height: 64px;
+    text-align: center;
+    display: inline-block;
+    background-color: darkgray;
+}
+
+h1{
+    text-align: center;
+}
