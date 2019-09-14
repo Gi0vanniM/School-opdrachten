@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
+</head>
+
+<body>
+    <h1>Calculator</h1>
+
+    <div class="buttong">
+        <input id="display" value=0></input> <br>
+
+        <button class="button" class="button" value="7" onclick="num(this)"> 7 </button>
+        <button class="button" value="8" onclick="num(this)"> 8 </button>
+        <button class="button" value="9" onclick="num(this)"> 9 </button> <br>
+        <button class="button" value="4" onclick="num(this)"> 4 </button>
+        <button class="button" value="5" onclick="num(this)"> 5 </button>
+        <button class="button" value="6" onclick="num(this)"> 6 </button> <br>
+        <button class="button" value="1" onclick="num(this)"> 1 </button>
+        <button class="button" value="2" onclick="num(this)"> 2 </button>
+        <button class="button" value="3" onclick="num(this)"> 3 </button> <br>
+
+        <button class="button" value="0" onclick="num(this)"> 0 </button>
+        <button class="button" value="," onclick="num(this)"> , </button>
+        <button class="button" value="+" onclick="operaterAction(this)"> + </button> <br>
+
+        <button class="button" value="-" onclick="operaterAction(this)"> - </button>
+        <button class="button" value="*" onclick="operaterAction(this)"> x </button>
+        <button class="button" value="/" onclick="operaterAction(this)"> % </button> <br>
+
+        <button class="button" id="clear" onclick="clearD()"> C </button>
+        <button class="button" id="back" onclick="back()"> &lsaquo; </button>
+        <button class="button" id="=" onclick="equals()"> = </button> <br>
+    </div>
+
+
+    <script src="assets/js/calculator.js"></script>
+</body>
+
+</html>
