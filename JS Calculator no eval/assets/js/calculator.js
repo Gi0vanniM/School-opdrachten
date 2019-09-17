@@ -14,10 +14,11 @@ function equals() {
         console.log("null:" + a + b);
         return false;
     }
+    a = a.replace(",", ".");
+    b = b.replace(",", ".");
     switch (action) {
         case '-':
             var out = Number(a) - Number(b);
-            console.log("action -");
             break;
         case '+':
             var out = Number(a) + Number(b);
