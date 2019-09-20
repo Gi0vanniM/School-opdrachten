@@ -9,7 +9,7 @@ function kaasGeel() {
     if (geel == "ja") {
         kaasGaten();
     } else if (geel == "nee") {
-        kaasBlauweSchimmel()
+        kaasBlauweSchimmel();
     } else {
         alert("Sorry het antwoord dat je hebt in gevuld is niet geldig, het antwoord moet ja of nee zijn.");
         kaasGeel();
@@ -62,6 +62,7 @@ function kaasHardAlsSteen() {
         alert("De kaas is Pamigiano Reggiano.");
     } else if (steen == "nee") {
         // Goudse kaas
+        alert("De kaas is Goudse kaas.");
     } else {
         alert("Sorry het antwoord dat je hebt in gevuld is niet geldig, het antwoord moet ja of nee zijn.");
         kaasHardAlsSteen();
