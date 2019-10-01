@@ -1,0 +1,39 @@
+.body-div {
+    font-family: 'Roboto', sans-serif;
+}
+
+.body-div {
+    margin: auto;
+    width: 50%;
+}
+
+p {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+/* hr {
+    line-height: 32px;
+} */
+
+.paraaf1 {
+    font-size: 24;
+    line-height: 32px;
+}
+
+.ingr li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.bereiding li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

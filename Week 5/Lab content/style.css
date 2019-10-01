@@ -1,0 +1,12 @@
+.box {
+    width: 300px;
+    height: 200;
+
+    padding: 40px;
+    margin: 40px;   
+    border: 20px;
+
+    outline: red dashed 20px;
+    /* border-inline: dashed red; */
+    background-color: burlywood;
+}
