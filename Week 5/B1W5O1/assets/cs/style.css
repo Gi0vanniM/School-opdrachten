@@ -4,7 +4,7 @@
 
 .body-div {
     margin: auto;
-    width: 50%;
+    width: 55%;
 }
 
 p {
@@ -29,16 +29,30 @@ h2 {
 }
 
 .ingr li{
-    padding-top: 5px;
-    padding-bottom: 5px;
+    /* padding-top: 5px; */
+    padding-bottom: 10px;
 }
 
 .bereiding li{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /* padding-top: 10px; */
+    padding-bottom: 20px;
 }
 
 .gehaktbrood_foto {
     width: 50%;
     height: 50%;
+}
+
+.tip-box {
+    background-color: #def6ed;
+    border-radius: 5px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;    
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.menu {
+    background-color: lavender;
 }
