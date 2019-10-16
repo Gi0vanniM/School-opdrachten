@@ -1,15 +1,8 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    /* grid-template-columns: auto auto auto auto auto; */
-    /* background-color: blue; */
     max-width: 1027px;
     max-height: 857px;
-}
-
-.grid-container > div {
-    /* background-color: aqua; */
-    /* text-align: center; */
 }
 
 .item0 {
