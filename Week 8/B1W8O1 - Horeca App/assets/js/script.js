@@ -10,7 +10,7 @@ var am_snack = 0.0;
 
 var stop = false;
 
-bestel();
+// bestel();
 
 function bestel() {
 
@@ -75,17 +75,19 @@ function calcRekening() {
     var rekening = "";
 
     if (tot_fris > 0) {
-        rekening = rekening + "Fris " + am_fris + "x €" + tot_fris.toFixed(2) + "<br>";
+        rekening = rekening + "Fris " + am_fris + "x....................€" + tot_fris.toFixed(2).replace(".", ",") + "<br>";
     }
     if (tot_bier > 0) {
-        rekening = rekening + "Bier " + am_bier + "x €" + tot_bier.toFixed(2) + "<br>";
+        rekening = rekening + "Bier " + am_bier + "x....................€" + tot_bier.toFixed(2).replace(".", ",") + "<br>";
     }
     if (tot_wijn > 0) {
-        rekening = rekening + "Wijn " + am_wijn + "x €" + tot_wijn.toFixed(2) + "<br>";
+        rekening = rekening + "Wijn " + am_wijn + "x....................€" + tot_wijn.toFixed(2).replace(".", ",") + "<br>";
     }
     if (tot_snack > 0) {
-        rekening = rekening + "Snack " + am_snack + "x €" + tot_snack.toFixed(2) + "<br>";
+        rekening = rekening + "Snack " + am_snack + "x....................€" + tot_snack.toFixed(2).replace(".", ",") + "<br>";
     }
-    document.write(rekening);
+    // document.writeln('<div class="rekening">' + rekening + '</div>');
+    document.getElementById("but").remove();
+    document.getElementById("rek").innerHTML = '<div class="rekening">' + rekening + '</div>';
 
 }
