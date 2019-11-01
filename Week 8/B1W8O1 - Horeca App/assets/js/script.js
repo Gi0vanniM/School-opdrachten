@@ -1,16 +1,14 @@
-const price_fris = 1;
+const price_fris = 1.0;
 const price_bier = 2.5;
-const price_wijn = 4;
-const price_snack8 = 2.5;
-const price_snack16 = 5;
+const price_wijn = 4.0;
+const price_snack = 0.25;
 
-var am_fris = 0;
-var am_bier = 0;
-var am_wijn = 0;
-var am_snack = 0;
+var am_fris = 0.0;
+var am_bier = 0.0;
+var am_wijn = 0.0;
+var am_snack = 0.0;
 
 var stop = false;
-
 
 bestel();
 
@@ -23,60 +21,71 @@ function bestel() {
             + "Bier                             €2,50\n"
             + "Wijn                             €4,00\n"
             + "Snack (bitterballen)     8st voor €2,50\n"
-            + "                                 16st voor €5,00").toLowerCase();
+            + "                                 16st voor €5,00");
+        ans.toLowerCase();
         // ans.toLowerCase;
         if (ans == "stop") {
             stop = true;
+            calcRekening();
         }
-        if (ans == "fris") {
-            am_fris = prompt("En hoeveel Fris wilt u?");
-            if (isNaN(am_fris)) {
-                alert("Invoer incorrect.");
+        else if (ans == "fris") {
+            var ans_fris = parseInt(prompt("En hoeveel fris wilt u?"));
+            if (ans_fris > 0) {
+                am_fris += ans_fris;
+                console.log("[am_fris:" + am_fris + "] [ans_fris:" + ans_fris + "]");
+                alert(ans_fris + " fris tegevoegd.\n" + am_fris + " fris totaal");
             }
         }
-        if (ans == "bier") {
-            am_bier = prompt("En hoeveel bier wilt u?");
-            if (isNaN(am_bier)) {
-                alert("Invoer incorrect.");
+        else if (ans == "bier") {
+            var ans_bier = parseInt(prompt("En hoeveel bier wilt u?"));
+            if (ans_bier > 0) {
+                am_bier += ans_bier;
+                console.log("[am_bier:" + am_bier + "] [ans_bier:" + ans_bier + "]");
+                alert(ans_bier + " bier tegevoegd.\n" + am_bier + " bier totaal");
             }
         }
-        if (ans == "wijn") {
-            am_wijn = prompt("En hoeveel wijn wilt u?");
-            if (isNaN(am_wijn)) {
-                alert("Invoer incorrect.");
+        else if (ans == "wijn") {
+            var ans_wijn = parseInt(prompt("En hoeveel wijn wilt u?"));
+            if (ans_wijn > 0) {
+                am_wijn += ans_wijn;
+                console.log("[am_fris:" + am_wijn + "] [ans_fris:" + ans_wijn + "]");
+                alert(ans_wijn + " fris tegevoegd.\n" + am_wijn + " fris totaal");
             }
         }
-        if (ans == "snack") {
-            var ans_snack = prompt("En hoeveel bitterballen wilt u?\n\nKies uit een schaal van 8 of 16.");
+        else if (ans == "snack") {
+            var ans_snack = parseInt(prompt("En hoeveel bitterballen wilt u?\n\nKies uit een schaal van 8 of 16."));
             if (ans_snack == 8 || ans_snack == 16) {
-                am_snack += parseInt(ans_snack);
-                alert(ans_snack + " bitterballen tegevoegd.\n" + am_snack + " totaal");
+                am_snack += ans_snack;
+                console.log("[am_snack:" + am_snack + "] [ans_snack:" + ans_snack + "]");
+                alert(ans_snack + " bitterballen tegevoegd.\n" + am_snack + " bitterballen totaal");
+            } else {
+                alert("Je moet uit 8 of 16 bitterballen kiezen.")
             }
 
         }
-        // if (ans == "fris" || ans == "bier" || ans == "wijn" || ans == "snack" || ans == "bitterballen") {
-        //     switch (ans) {
-        //         case "fris":
-        //             am_fris = prompt("En hoeveel fris wil je bestellen?")
-        //             break;
-        //         case "bier":
-        //             break;
-        //         case "wijn":
-        //             break;
-        //         case "snack" || "bitterballen":
-        //             break;
-        //         default:
-        //             break;
-        //     }
-        // }
-        else {
-            alert("Invoer incorrect.");
-        }
     }
-    // function addOrder(product, amount) {
-    //     product = 4
-    // }
-    function calcRekening() {
+}
 
+function calcRekening() {
+    var tot_fris = am_fris * price_fris;
+    var tot_bier = am_bier * price_bier;
+    var tot_wijn = am_wijn * price_wijn;
+    var tot_snack = am_snack * price_snack;
+
+    var rekening = "";
+
+    if (tot_fris > 0) {
+        rekening = rekening + "Fris " + am_fris + "x €" + tot_fris.toFixed(2) + "<br>";
     }
+    if (tot_bier > 0) {
+        rekening = rekening + "Bier " + am_bier + "x €" + tot_bier.toFixed(2) + "<br>";
+    }
+    if (tot_wijn > 0) {
+        rekening = rekening + "Wijn " + am_wijn + "x €" + tot_wijn.toFixed(2) + "<br>";
+    }
+    if (tot_snack > 0) {
+        rekening = rekening + "Snack " + am_snack + "x €" + tot_snack.toFixed(2) + "<br>";
+    }
+    document.write(rekening);
+
 }
