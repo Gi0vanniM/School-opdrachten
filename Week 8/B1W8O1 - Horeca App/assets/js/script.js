@@ -1,12 +1,12 @@
-const price_fris = 1.0;
-const price_bier = 2.5;
-const price_wijn = 4.0;
-const price_snack = 0.25;
+const PRICE_FRIS = 1.0; //const caps
+const PRICE_BIER = 2.5;
+const PRICE_WIJN = 4.0;
+const PRICE_SNACK = 0.25;
 
-var am_fris = 0.0;
-var am_bier = 0.0;
-var am_wijn = 0.0;
-var am_snack = 0.0;
+var am_fris = 0;
+var am_bier = 0;
+var am_wijn = 0;
+var am_snack = 0;
 
 var stop = false;
 
@@ -67,10 +67,10 @@ function bestel() {
 }
 
 function calcRekening() {
-    var tot_fris = am_fris * price_fris;
-    var tot_bier = am_bier * price_bier;
-    var tot_wijn = am_wijn * price_wijn;
-    var tot_snack = am_snack * price_snack;
+    var tot_fris = am_fris * PRICE_FRIS;
+    var tot_bier = am_bier * PRICE_BIER;
+    var tot_wijn = am_wijn * PRICE_WIJN;
+    var tot_snack = am_snack * PRICE_SNACK;
 
     var rekening = "";
 
@@ -86,6 +86,7 @@ function calcRekening() {
     if (tot_snack > 0) {
         rekening = rekening + "Snack " + am_snack + "x....................€" + tot_snack.toFixed(2).replace(".", ",") + "<br>";
     }
+    rekening = rekening + "Totaal: €" + (tot_fris + tot_bier + tot_wijn + tot_snack).toFixed(2).replace(".", ",");
     // document.writeln('<div class="rekening">' + rekening + '</div>');
     document.getElementById("but").remove();
     document.getElementById("rek").innerHTML = '<div class="rekening">' + rekening + '</div>';
