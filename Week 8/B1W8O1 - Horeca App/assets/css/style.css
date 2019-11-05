@@ -9,3 +9,8 @@ body {
     color: white;
     background-color: darkgray;
 }
+
+button {
+    margin: auto;
+    display: block;
+}

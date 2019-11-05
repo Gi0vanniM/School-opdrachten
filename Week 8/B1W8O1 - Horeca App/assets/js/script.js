@@ -1,8 +1,11 @@
+
+// prijzen
 const PRICE_FRIS = 1.0; //const caps
 const PRICE_BIER = 2.5;
 const PRICE_WIJN = 4.0;
 const PRICE_SNACK = 0.25;
 
+// 
 var am_fris = 0;
 var am_bier = 0;
 var am_wijn = 0;
