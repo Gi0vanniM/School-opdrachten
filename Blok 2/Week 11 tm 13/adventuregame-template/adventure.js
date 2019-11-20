@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 var music = new Audio("Assets/Sound/magus.mp3");
 music.play();
@@ -13,5 +14,13 @@ document.getElementById("button2").addEventListener("click", function yo() { sta
 
 function start() {
     music.pause();
+=======
+import { module } from './setup';
+
+
+document.getElementById("button2").addEventListener("click", function yo() { alert("yoda"); });
+
+function start() {
+>>>>>>> master
 
 }
