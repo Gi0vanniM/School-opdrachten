@@ -1,0 +1,20 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+button {
+    border: none;
+    background-color: rgba(95, 95, 95, 0.815);
+    color: white;
+    font-weight: bold;
+    min-width: 75px;
+    max-width: 100px;
+}
+
+#game-container {
+    border: 5px solid gray;
+}
