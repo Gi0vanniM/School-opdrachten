@@ -18,3 +18,12 @@ button {
 #game-container {
     border: 5px solid gray;
 }
+
+/* #game-buttons:before {
+    content: url('Assets/Images/press_start.jpg');
+} */
+
+#imaaag {
+width: 80%;
+max-width: 2000px;
+}
