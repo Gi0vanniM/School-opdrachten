@@ -1,7 +1,5 @@
 export function setupGame() {
-<<<<<<< HEAD
 
-=======
     var music = new Audio("Assets/Sound/magus.mp3");
     music.play();
 
@@ -11,5 +9,4 @@ export function setupGame() {
     document.getElementById("button1").innerHTML = "-"
     document.getElementById("button2").innerHTML = "START"
     document.getElementById("button3").innerHTML = "-"
->>>>>>> master
 }
