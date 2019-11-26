@@ -4,6 +4,8 @@ body {
     background-color: black;
     color: white;
     text-align: center;
+    position: relative;
+    max-height: 100%;
 }
 
 button {
@@ -17,6 +19,8 @@ button {
 
 #game-container {
     border: 5px solid gray;
+    max-height: 100%;
+    position: relative;
 }
 
 /* #game-buttons:before {
@@ -27,3 +31,43 @@ button {
 width: 80%;
 max-width: 2000px;
 }
+
+#display {
+    position: relative;
+}
+
+#img_clothes {
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    width: 30%;
+}
+#img_phone {
+    position: absolute;
+    width: 7%;
+    top: 50%;
+    left: 30%;
+}
+#img_walletAndKeys {
+    position: absolute;
+    width: 10%;
+    top: 53%;
+    left: 60%;
+}
+
+#get_stuff {
+    text-align: left;
+}
+
+#inventoryItem {
+    /* width: 30%; */
+    margin: auto;
+    text-align: center;
+}
+
+/* #inventoryItem: */
+
+.invItem {
+    width: 10%;
+}
+
