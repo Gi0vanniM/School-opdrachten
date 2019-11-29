@@ -1,4 +1,5 @@
 
+// variables
 var started = false;
 var music = new Audio("Assets/Sound/magus.mp3");
 
@@ -14,13 +15,13 @@ inventoryItem.alt = "Inventory";
 
 var inventory = [];
 
-var inventoryDisplayItems = [
-    { name: "clothes", location: "Assets/Images/clothes.png", id: "inv_clothes" },
-    { name: "phone", location: "Assets/Images/phone.png", id: "inv_phone" },
-    { name: "keys", location: "Assets/Images/keys.png", id: "inv_keys" },
-    { name: "wallet", location: "Assets/Images/wallet.png", id: "inv_wallet" },
-    { name: "gun", location: "Assets/Images/gun.png", id: "inv_gun" }
-];
+// var game.inventoryDisplayItems = [
+//     { name: "clothes", location: "Assets/Images/clothes.png", id: "inv_clothes" },
+//     { name: "phone", location: "Assets/Images/phone.png", id: "inv_phone" },
+//     { name: "keys", location: "Assets/Images/keys.png", id: "inv_keys" },
+//     { name: "wallet", location: "Assets/Images/wallet.png", id: "inv_wallet" },
+//     { name: "gun", location: "Assets/Images/gun.png", id: "inv_gun" }
+// ];
 
 var display = document.createElement("div");
 display.id = "display";
@@ -41,6 +42,7 @@ curruntScene.id = "currentScene";
 document.body.appendChild(curruntScene);
 curruntScene.innerHTML = "start_screen";
 
+// game start up
 music.play();
 
 document.head += '<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">'
@@ -53,6 +55,7 @@ button3.innerHTML = "-"
 button1.setAttribute("onClick", "music.play();");
 button2.setAttribute("onClick", "start();");
 
+// game scene functions
 function start() {
     if (started == false) {
         started = true;
@@ -63,69 +66,148 @@ function start() {
         button2.innerHTML = "B";
         button3.innerHTML = "C";
 
-        scene0_WakingUp0();
+        playLevel("scene0_WakingUp0");
+        // scene0_WakingUp0();
     }
 }
 
-function scene0_WakingUp0() {
-    console.log("start scene0_WakingUp0");
-    curruntScene.innerHTML = "scene0_WakingUp0";
+function playLevel(lvl) {
+    var Level = game.level[lvl];
+    // img.src = game.level[lvl].img;
+    console.log("starting level " + Level.curruntScene);
+    curruntScene.innerHTML = Level.curruntScene;
     scene++;
 
-    img.src = "Assets/Images/bedroom.jpg"
-    desc.innerHTML = "You wake up in your bedroom. " +
-        "You see a note saying you need to go grocery shopping. " +
-        "With it a list of what you need to buy.<br><br>" +
-        //
-        "First you need to grab your stuff before you can go.<br>" +
-        "<ul id='actions'><b>A</b>: Clothes<br>" +
-        "<b>B</b>: Keys and wallet<br>" +
-        "<b>C</b>: Phone</ul>";
+    if (Level.img != null) {
+        img.src = Level.img;
+    }
 
-    // inventory.push("clothes");
-    // inventory.remove("clothes")
-    // imgClothes.style.visibility = "hidden";
-    loadObject("clothes");
-    loadObject("phone");
-    loadObject("walletAndKeys");
-    loadObject("gun");
+    createDesc(Level.desc[0], Level.desc[1], Level.desc[2], Level.desc[3], Level.desc[4]);
 
-    button1.setAttribute("onClick", "pickUpItem('clothes');");
-    button2.setAttribute("onClick", "pickUpItem('phone');");
-    button3.setAttribute("onClick", "pickUpItem('walletAndKeys');");
+    if (Level.load != null) {
+        for (var i = 0; i < Level.load.length; i++) {
+            loadObject(Level.load[i]);
+        }
+    }
+    button1.setAttribute("onClick", Level.button1);
+    button2.setAttribute("onClick", Level.button2);
+    button3.setAttribute("onClick", Level.button3);
 }
 
-function scene0_WakingUp1() {
-    console.log("start scene0_WakingUp1");
-    curruntScene.innerHTML = "scene0_WakingUp1";
-    scene++;
+// function scene0_WakingUp0() {
+//     console.log("start scene0_WakingUp0");
+//     curruntScene.innerHTML = "scene0_WakingUp0";
+//     scene++;
 
-    img.src = "Assets/Images/bedroom.jpg"
-    desc.innerHTML = "You put on your clothes. " +
-        "You now need to go outside" +
-        "With it a list of what you need to buy.<br><br>" +
-        //
-        "Actions:<br>" +
-        "<ul id='actions'><b>A</b>: Leave bedroom<br>" +
-        "<b>B</b>: <br>" +
-        "<b>C</b>: Take gun</ul>";
+//     img.src = "Assets/Images/bedroom.jpg"
 
-    button1.setAttribute("onClick", "scene1_LivingRoom0();");
-    button2.setAttribute("onClick", "");
-    button3.setAttribute("onClick", "pickUpItem('gun');");
+//     createDesc("You wake up in your bedroom. " +
+//         "You see a note saying you need to go grocery shopping. " +
+//         "With it a list of what you need to buy.", "Clothes",
+//         "Keys and wallet", "Phone", "First you need to grab your stuff before you can go.");
 
+//     // inventory.push("clothes");
+//     // inventory.remove("clothes")
+//     // imgClothes.style.visibility = "hidden";
+//     loadObject("clothes");
+//     loadObject("phone");
+//     loadObject("walletAndKeys");
+//     loadObject("gun");
+
+//     button1.setAttribute("onClick", "pickUpItem('clothes');");
+//     button2.setAttribute("onClick", "pickUpItem('phone');");
+//     button3.setAttribute("onClick", "pickUpItem('walletAndKeys');");
+// }
+
+// function scene0_WakingUp1() {
+//     console.log("start scene0_WakingUp1");
+//     curruntScene.innerHTML = "scene0_WakingUp1";
+//     scene++;
+
+//     img.src = "Assets/Images/bedroom.jpg"
+//     createDesc("You put on your clothes. You live in a dangerous city, do you bring your gun with you?",
+//         "Leave bedroom", "Decide not to go", "Take gun")
+
+//     button1.setAttribute("onClick", "scene1_LivingRoom0();");
+//     button2.setAttribute("onClick", "doNothing();");
+//     button3.setAttribute("onClick", "pickUpItem('gun');");
+
+// }
+
+// function scene1_LivingRoom0() {
+//     console.log("start scene1_LivingRoom0");
+//     curruntScene.innerHTML = "scene1_LivingRoom0";
+//     scene++;
+//     img.src = "Assets/Images/livingroom.jpg"
+//     createDesc("You walk into the living room. You realise you haven't eaten yet.",
+//         "Eat moldy sandwich",
+//         "Eat last 'Frikandellen broodje'",
+//         "Go (without eating)")
+//     button1.setAttribute("onClick", "scene1_LivingRoom1(1);");
+//     button2.setAttribute("onClick", "scene1_LivingRoom1(0);");
+//     button3.setAttribute("onClick", "playLevel('scene2_OutsideStreets0');");
+// }
+
+function scene1_LivingRoom1(n) {
+    if (n == 0) {
+        if (inventory.includes("gun")) {
+            alert("One of your friends come walking in the living room. He notices you eating his 'Frikandellen broodje'. You see him reaching for his gun, but you shoot him first.");
+            alert("After shooting your 'friend' you go outside.");
+            playLevel('scene2_OutsideStreets0');
+        } else {
+            alert("One of your friends come walking in the living room. He notices you eating his 'Frikandellen broodje' and just shoots you in the stomach.");
+            alert("You later die in the hospital since you do not have any life insurance.");
+            gameOver();
+        }
+    } else {
+        alert("You got ligma from eating the moldy sandwich");
+        gameOver();
+    }
 }
 
-function scene1_LivingRoom0() {
-    console.log("start scene1_LivingRoom0");
-    curruntScene.innerHTML = "scene1_LivingRoom0";
-    scene++;
-
-    img.src = "Assets/Images/livingroom.jpg"
-    desc.innerHTML = "lr";
+function doNothing() {
+    console.log("doing nothing what so ever");
+    alert("You decided not to do anything.\nWhy though?");
+    gameOver();
 }
 
-//#######################################
+function gameOver() {
+    img.src = "Assets/Images/gameover.jpg";
+    createDesc("It's game over for you then. Wanna play again?", "PLAY AGAIN", "PLAY AGAIN", "PLAY AGAIN");
+    button1.setAttribute("onClick", "window.location = location;");
+    button2.setAttribute("onClick", "window.location = location;");
+    button3.setAttribute("onClick", "window.location = location;");
+}
+
+//################################################
+// FUNCTIONS
+
+function createDesc(des, optionA, optionB, optionC, action) {
+    desc.innerHTML = "";
+    if (action == null) {
+        action = "Actions:"
+    }
+    var text = des +
+        "<br><br>" + action + "<br>" +
+        "<ul id='actions'>" +
+        "<b>A</b>: " + optionA + "<br>" +
+        "<b>B</b>: " + optionB + "<br>" +
+        "<b>C</b>: " + optionC + "</ul>";
+    var i = 0;
+    var broomstickhandle = 25;
+    typeWriter();
+    function typeWriter() {
+        if (i >= des.length) {
+            desc.innerHTML = text;
+        }
+        if (i < des.length) {
+            desc.innerHTML += des.charAt(i);
+            i++;
+            setTimeout(typeWriter, broomstickhandle);
+        }
+    }
+
+}
 
 function pickUpItem(item) {
     if (item == "clothes" || item == "phone"
@@ -146,7 +228,7 @@ function pickUpItem(item) {
         if (inventory.includes("clothes") && inventory.includes("phone")
             && inventory.includes("keys") && inventory.includes("wallet")
             && scene == 1) {
-            scene0_WakingUp1();
+            playLevel('scene0_WakingUp1');
         }
     }
 }
@@ -169,7 +251,7 @@ function updateInventory() {
     for (var i = 0; i < l; i++) {
         // inventoryItem.alt += inventory[i] + "<br>";
         // console.log(inventory[i]);
-        let imgLoc = search(inventory[i], inventoryDisplayItems);
+        let imgLoc = search(inventory[i], game.inventoryDisplayItems);
         var imag = document.createElement("img");
         imag.src = imgLoc.location
         imag.id = imgLoc.id;

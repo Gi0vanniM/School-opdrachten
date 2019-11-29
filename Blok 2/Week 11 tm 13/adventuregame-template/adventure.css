@@ -72,9 +72,13 @@ max-width: 90%;
     top: 35%;
     left: 83%;
 }
-
+#description {
+    max-width: 70%;
+    margin: auto;
+}
 #actions {
     text-align: left;
+    padding: 0;
 }
 
 #inventoryItem {
@@ -90,7 +94,7 @@ max-width: 90%;
     margin: auto;
     justify-items: center;
     max-width: 50%;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: 20% 20% 20% 20% 20%;
     /* grid-template-rows: 100%; */
 }
 #invDisplay img {
