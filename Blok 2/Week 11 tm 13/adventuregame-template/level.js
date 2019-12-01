@@ -57,3 +57,34 @@ var game = {
         { name: "gun", location: "Assets/Images/gun.png", id: "inv_gun" }
     ]
 }
+
+function scene1_LivingRoom1(n) {
+    if (n == 0) {
+        if (inventory.includes("gun")) {
+            alert("One of your friends come walking in the living room. He notices you eating his 'Frikandellen broodje'. You see him reaching for his gun, but you shoot him first.");
+            alert("After shooting your 'friend' you go outside.");
+            playLevel('scene2_OutsideStreets0');
+        } else {
+            alert("One of your friends come walking in the living room. He notices you eating his 'Frikandellen broodje' and just shoots you in the stomach.");
+            alert("You later die in the hospital since you do not have any life insurance.");
+            gameOver();
+        }
+    } else {
+        alert("You got ligma from eating the moldy sandwich");
+        gameOver();
+    }
+}
+
+function doNothing() {
+    console.log("doing nothing what so ever");
+    alert("You decided not to do anything.\nWhy though?");
+    gameOver();
+}
+
+function gameOver() {
+    img.src = "Assets/Images/gameover.jpg";
+    createDesc("It's game over for you then. Wanna play again?", "PLAY AGAIN", "PLAY AGAIN", "PLAY AGAIN");
+    button1.setAttribute("onClick", "window.location = location;");
+    button2.setAttribute("onClick", "window.location = location;");
+    button3.setAttribute("onClick", "window.location = location;");
+}

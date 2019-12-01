@@ -75,6 +75,7 @@ max-width: 90%;
 #description {
     max-width: 70%;
     margin: auto;
+    height: 17vh; /*  */
 }
 #actions {
     text-align: left;

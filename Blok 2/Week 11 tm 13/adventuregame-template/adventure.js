@@ -94,77 +94,6 @@ function playLevel(lvl) {
     button3.setAttribute("onClick", Level.button3);
 }
 
-// function scene0_WakingUp0() {
-//     console.log("start scene0_WakingUp0");
-//     curruntScene.innerHTML = "scene0_WakingUp0";
-//     scene++;
-
-//     img.src = "Assets/Images/bedroom.jpg"
-
-//     createDesc("You wake up in your bedroom. " +
-//         "You see a note saying you need to go grocery shopping. " +
-//         "With it a list of what you need to buy.", "Clothes",
-//         "Keys and wallet", "Phone", "First you need to grab your stuff before you can go.");
-
-//     // inventory.push("clothes");
-//     // inventory.remove("clothes")
-//     // imgClothes.style.visibility = "hidden";
-//     loadObject("clothes");
-//     loadObject("phone");
-//     loadObject("walletAndKeys");
-//     loadObject("gun");
-
-//     button1.setAttribute("onClick", "pickUpItem('clothes');");
-//     button2.setAttribute("onClick", "pickUpItem('phone');");
-//     button3.setAttribute("onClick", "pickUpItem('walletAndKeys');");
-// }
-
-// function scene0_WakingUp1() {
-//     console.log("start scene0_WakingUp1");
-//     curruntScene.innerHTML = "scene0_WakingUp1";
-//     scene++;
-
-//     img.src = "Assets/Images/bedroom.jpg"
-//     createDesc("You put on your clothes. You live in a dangerous city, do you bring your gun with you?",
-//         "Leave bedroom", "Decide not to go", "Take gun")
-
-//     button1.setAttribute("onClick", "scene1_LivingRoom0();");
-//     button2.setAttribute("onClick", "doNothing();");
-//     button3.setAttribute("onClick", "pickUpItem('gun');");
-
-// }
-
-// function scene1_LivingRoom0() {
-//     console.log("start scene1_LivingRoom0");
-//     curruntScene.innerHTML = "scene1_LivingRoom0";
-//     scene++;
-//     img.src = "Assets/Images/livingroom.jpg"
-//     createDesc("You walk into the living room. You realise you haven't eaten yet.",
-//         "Eat moldy sandwich",
-//         "Eat last 'Frikandellen broodje'",
-//         "Go (without eating)")
-//     button1.setAttribute("onClick", "scene1_LivingRoom1(1);");
-//     button2.setAttribute("onClick", "scene1_LivingRoom1(0);");
-//     button3.setAttribute("onClick", "playLevel('scene2_OutsideStreets0');");
-// }
-
-function scene1_LivingRoom1(n) {
-    if (n == 0) {
-        if (inventory.includes("gun")) {
-            alert("One of your friends come walking in the living room. He notices you eating his 'Frikandellen broodje'. You see him reaching for his gun, but you shoot him first.");
-            alert("After shooting your 'friend' you go outside.");
-            playLevel('scene2_OutsideStreets0');
-        } else {
-            alert("One of your friends come walking in the living room. He notices you eating his 'Frikandellen broodje' and just shoots you in the stomach.");
-            alert("You later die in the hospital since you do not have any life insurance.");
-            gameOver();
-        }
-    } else {
-        alert("You got ligma from eating the moldy sandwich");
-        gameOver();
-    }
-}
-
 function doNothing() {
     console.log("doing nothing what so ever");
     alert("You decided not to do anything.\nWhy though?");
@@ -194,7 +123,7 @@ function createDesc(des, optionA, optionB, optionC, action) {
         "<b>B</b>: " + optionB + "<br>" +
         "<b>C</b>: " + optionC + "</ul>";
     var i = 0;
-    var broomstickhandle = 25;
+    var broomstickhandle = 5;
     typeWriter();
     function typeWriter() {
         if (i >= des.length) {
