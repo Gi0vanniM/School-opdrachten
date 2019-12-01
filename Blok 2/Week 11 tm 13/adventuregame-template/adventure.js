@@ -94,20 +94,6 @@ function playLevel(lvl) {
     button3.setAttribute("onClick", Level.button3);
 }
 
-function doNothing() {
-    console.log("doing nothing what so ever");
-    alert("You decided not to do anything.\nWhy though?");
-    gameOver();
-}
-
-function gameOver() {
-    img.src = "Assets/Images/gameover.jpg";
-    createDesc("It's game over for you then. Wanna play again?", "PLAY AGAIN", "PLAY AGAIN", "PLAY AGAIN");
-    button1.setAttribute("onClick", "window.location = location;");
-    button2.setAttribute("onClick", "window.location = location;");
-    button3.setAttribute("onClick", "window.location = location;");
-}
-
 //################################################
 // FUNCTIONS
 
