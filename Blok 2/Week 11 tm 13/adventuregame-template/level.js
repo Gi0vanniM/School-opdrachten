@@ -3,7 +3,7 @@
 var game = {
     level: {
         scene0_WakingUp0: {
-            curruntScene: "scene0_WakingUp0",
+            currentScene: "scene0_WakingUp0",
             img: "Assets/Images/bedroom.jpg",
             desc: ["You wake up in your bedroom. " +
                 "You see a note saying you need to go grocery shopping. " +
@@ -18,7 +18,7 @@ var game = {
             button3: "pickUpItem('phone');"
         },
         scene0_WakingUp1: {
-            curruntScene: "scene0_WakingUp1",
+            currentScene: "scene0_WakingUp1",
             desc: ["You put on your clothes. You live in a dangerous city, do you bring your gun with you?",
                 "Leave bedroom",
                 "Decide not to go",
@@ -28,7 +28,7 @@ var game = {
             button3: "pickUpItem('gun');"
         },
         scene1_LivingRoom0: {
-            curruntScene: "scene1_LivingRoom0",
+            currentScene: "scene1_LivingRoom0",
             img: "Assets/Images/livingroom.jpg",
             desc: ["You walk into the living room. You realise you haven't eaten yet.",
                 "Eat moldy sandwich",
@@ -36,10 +36,18 @@ var game = {
                 "Go (without eating)"],
             button1: "scene1_LivingRoom1(1);", // 
             button2: "scene1_LivingRoom1(0);", //
-            button3: "scene2_OutsideStreets0();"
+            button3: "playLevel('scene2_OutsideStreets0');"
         },
         scene2_OutsideStreets0: {
-
+            currentScene: "scene2_OutsideStreets0",
+            img: "Assets/Images/outsideStreet.png",
+            desc: ["You walk outside, you see your vehicle infront of your house.",
+                "Enter vehicle",
+                "Enter garage",
+                "Walk"],
+            button1: "", // vehicle
+            button2: "", // garage
+            button3: "" // cant walk
         },
         scene2_Garage0: {
 

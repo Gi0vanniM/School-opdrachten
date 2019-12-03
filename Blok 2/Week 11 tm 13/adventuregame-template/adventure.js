@@ -37,10 +37,10 @@ inventoryDisplay.id = "invDisplay"
 document.getElementById("game-container").appendChild(inventoryDisplay);
 inventoryDisplay.innerHTML = "empty"
 
-var curruntScene = document.createElement("div");
-curruntScene.id = "currentScene";
-document.body.appendChild(curruntScene);
-curruntScene.innerHTML = "start_screen";
+var currentScene = document.createElement("div");
+currentScene.id = "currentScene";
+document.body.appendChild(currentScene);
+currentScene.innerHTML = "start_screen";
 
 // game start up
 music.play();
@@ -74,8 +74,8 @@ function start() {
 function playLevel(lvl) {
     var Level = game.level[lvl];
     // img.src = game.level[lvl].img;
-    console.log("starting level " + Level.curruntScene);
-    curruntScene.innerHTML = Level.curruntScene;
+    console.log("starting level " + Level.currentScene);
+    currentScene.innerHTML = Level.currentScene;
     scene++;
 
     if (Level.img != null) {
