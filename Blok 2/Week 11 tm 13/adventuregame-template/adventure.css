@@ -40,11 +40,12 @@ button {
 
 #imaaag {
 width: 80%;
-max-width: 90%;
+max-width: 80%;
 }
 
 #display {
     position: relative;
+    /* margin-top: 20vh; */
     height: 70%;
 }
 
@@ -72,14 +73,33 @@ max-width: 90%;
     top: 35%;
     left: 83%;
 }
+#img_fuel {
+    position: absolute;
+    width: 20%;
+    top: 50%;
+    left: 50%;
+}
+#img_broomstickhandle {
+    position: absolute;
+    width: 20%;
+    top: 50%;
+    left: 70%;
+}
+
 #description {
     max-width: 70%;
     margin: auto;
-    height: 30%; /*  */
+    padding-left: 5%;
+    padding-right: 5%;
+    /* width: 100vh; */
+    height: 18vh; 
+    min-height: 30%;
+    background-color: rgb(42, 42, 42);
 }
 #actions {
     text-align: left;
     padding: 0;
+    margin: 0;
 }
 
 #inventoryItem {

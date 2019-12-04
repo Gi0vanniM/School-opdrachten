@@ -14,6 +14,7 @@ var inventoryItem = document.getElementById("inventoryItem");
 inventoryItem.alt = "Inventory";
 
 var inventory = [];
+var vehicleFueled = false;
 
 // var game.inventoryDisplayItems = [
 //     { name: "clothes", location: "Assets/Images/clothes.png", id: "inv_clothes" },
@@ -121,42 +122,41 @@ function createDesc(des, optionA, optionB, optionC, action) {
             setTimeout(typeWriter, broomstickhandle);
         }
     }
-
 }
 
 function pickUpItem(item) {
-    if (item == "clothes" || item == "phone"
-        || item == "walletAndKeys" || item == "gun") {
-        if (!inventory.includes(item)) {
+    // if (item == "clothes" || item == "phone"
+    //     || item == "walletAndKeys" || item == "gun") {
+    if (!inventory.includes(item)) {
 
-            document.getElementById("img_" + item).style.visibility = "hidden";
-            if (item == "walletAndKeys") {
-                if (!inventory.includes("wallet")) {
-                    inventory.push("wallet");
-                    inventory.push("keys");
-                }
-            } else {
-                inventory.push(item);
+        document.getElementById("img_" + item).style.visibility = "hidden";
+        if (item == "walletAndKeys") {
+            if (!inventory.includes("wallet")) {
+                inventory.push("wallet");
+                inventory.push("keys");
             }
-            updateInventory();
+        } else {
+            inventory.push(item);
         }
-        if (inventory.includes("clothes") && inventory.includes("phone")
-            && inventory.includes("keys") && inventory.includes("wallet")
-            && scene == 1) {
-            playLevel('scene0_WakingUp1');
-        }
+        updateInventory();
     }
+    if (inventory.includes("clothes") && inventory.includes("phone")
+        && inventory.includes("keys") && inventory.includes("wallet")
+        && scene == 1) {
+        playLevel('scene0_WakingUp1');
+    }
+    // }
 }
 
 function loadObject(objectName) {
 
-    if (objectName == "clothes" || objectName == "phone" || objectName == "walletAndKeys" || objectName == "gun") {
-        if (!inventory.includes(objectName)) {
-            var imgObject = document.createElement("img");
-            imgObject.src = "Assets/Images/" + objectName + ".png";
-            imgObject.id = "img_" + objectName;
-            document.getElementById("display").appendChild(imgObject);
-        }
+    // if (objectName == "clothes" || objectName == "phone" || objectName == "walletAndKeys" || objectName == "gun") {
+    if (!inventory.includes(objectName)) {
+        var imgObject = document.createElement("img");
+        imgObject.src = "Assets/Images/" + objectName + ".png";
+        imgObject.id = "img_" + objectName;
+        document.getElementById("display").appendChild(imgObject);
+        // }
     }
 }
 
@@ -174,7 +174,6 @@ function updateInventory() {
         imag.className = "invItem";
         inventoryDisplay.appendChild(imag);
     }
-
 }
 
 search = (key, inputArray) => {

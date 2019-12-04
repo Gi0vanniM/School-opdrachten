@@ -45,15 +45,54 @@ var game = {
                 "Enter vehicle",
                 "Enter garage",
                 "Walk"],
-            button1: "", // vehicle
-            button2: "", // garage
-            button3: "" // cant walk
+            button1: "playLevel('scene2_SpaceShip0');", // vehicle
+            button2: "playLevel('scene2_Garage0');", // garage
+            button3: "alert('Walking will take way too long!');" // cant walk
         },
         scene2_Garage0: {
-
+            currentScene: "scene2_Garage0",
+            img: "Assets/Images/garage.jpg",
+            desc: ["",
+                "Take fuel",
+                "Broomstick handle",
+                "Go outside"],
+            load: ["fuel", "broomstickhandle"],
+            button1: "pickUpItem('fuel');", // fuel
+            button2: "alert('THY SHALL NOT TOUCC T H E ALMIGHTY BROOMSTICK HANDLE!');", // broomstick
+            button3: "inventory.includes('fuel') ? playLevel('scene2_OutsideStreets1') : playLevel('scene2_OutsideStreets0');" // 
+        },
+        scene2_OutsideStreets1: {
+            currentScene: "scene2_OutsideStreets1",
+            img: "Assets/Images/outsideStreet.png",
+            desc: ["You got the fuel, now you can fuel up your vehicle.",
+                "Enter vehicle",
+                "Fill up vehicle",
+                "Walk"],
+            button1: "vehicleFueled == true ? playLevel('scene2_SpaceShip1') : alert('You should fill your car with fuel first.');", // vehicle
+            button2: "inventory.remove('fuel'); vehicleFueled = true; updateInventory();", // fuel up vehicle
+            button3: "alert('Walking will take way too long!');" // cant walk
         },
         scene2_SpaceShip0: {
-
+            currentScene: "scene2_SpaceShip0",
+            img: "Assets/Images/cockpit.jpg",
+            desc: ["You try to take off, but the vehicle is out of fuel.",
+                "Exit vehicle",
+                "Read note",
+                "Self destruct"],
+            button1: "playLevel('scene2_OutsideStreets0');", // go back outside
+            button2: "alert('The note says there is some fuel left in the garage.');", // note
+            button3: "alert('You press the self destruct button. It\u0027s pretty obvious what happens, you die.'); gameOver();" //self destruct
+        },
+        scene2_SpaceShip1: {
+            currentScene: "scene2_SpaceShip1",
+            img: "Assets/Images/cockpit.jpg",
+            desc: ["Now you can fly to the Qualbert Ceyn",
+                "Take off",
+                "Press random button",
+                "Exit vehicle"],
+            button1: "",
+            button2: "",
+            button3: ""
         },
 
     },
@@ -62,7 +101,8 @@ var game = {
         { name: "phone", location: "Assets/Images/phone.png", id: "inv_phone" },
         { name: "keys", location: "Assets/Images/keys.png", id: "inv_keys" },
         { name: "wallet", location: "Assets/Images/wallet.png", id: "inv_wallet" },
-        { name: "gun", location: "Assets/Images/gun.png", id: "inv_gun" }
+        { name: "gun", location: "Assets/Images/gun.png", id: "inv_gun" },
+        { name: "fuel", location: "Assets/Images/fuel.png", id: "inv_fuel" }
     ]
 }
 
