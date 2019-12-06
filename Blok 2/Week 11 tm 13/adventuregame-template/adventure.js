@@ -15,6 +15,8 @@ inventoryItem.alt = "Inventory";
 
 var inventory = [];
 var vehicleFueled = false;
+var doneGroceries = false;
+var did = false;
 
 // var game.inventoryDisplayItems = [
 //     { name: "clothes", location: "Assets/Images/clothes.png", id: "inv_clothes" },
@@ -74,6 +76,7 @@ function start() {
 
 function playLevel(lvl) {
     var Level = game.level[lvl];
+    unloadAll();
     // img.src = game.level[lvl].img;
     console.log("starting level " + Level.currentScene);
     currentScene.innerHTML = Level.currentScene;
@@ -155,9 +158,16 @@ function loadObject(objectName) {
         var imgObject = document.createElement("img");
         imgObject.src = "Assets/Images/" + objectName + ".png";
         imgObject.id = "img_" + objectName;
+        imgObject.className = "img_object";
         document.getElementById("display").appendChild(imgObject);
         // }
     }
+}
+
+function unloadAll() {
+    const elements = document.getElementsByClassName("img_object");
+
+    while (elements.length > 0) elements[0].remove();
 }
 
 function updateInventory() {
@@ -194,3 +204,7 @@ Array.prototype.remove = function () {
     }
     return this;
 };
+
+function randomNum(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
