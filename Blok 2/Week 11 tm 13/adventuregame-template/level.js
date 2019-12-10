@@ -98,7 +98,7 @@ var game = {
         scene3_QC0: {
             currentScene: "scene2_SpaceShip1",
             img: "Assets/Images/markt.jpg",
-            desc: ["You arrived at Qualber Ceyn",
+            desc: ["You arrived at Qualbert Ceyn",
                 "Buy the stuff you need",
                 "Go to the toilet",
                 "Go back home"],
