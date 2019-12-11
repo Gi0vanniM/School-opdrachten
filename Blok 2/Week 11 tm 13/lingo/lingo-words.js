@@ -451,6 +451,7 @@ var words = [
 	"weken",
 	"wraak",
 	"wilde",
+	"witte",
 	"wreed",
 	"wrede",
 	"wenst",
