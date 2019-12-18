@@ -3,6 +3,7 @@ var attempts = 0;
 var input = [];
 // var answer = Array.from(words[0].toUpperCase());
 var answer = [];
+// var tempAnswer = [];
 
 
 function start() {
@@ -21,6 +22,8 @@ function start() {
 
 function check() {
     input = Array.from(document.getElementById("input-box").value.toUpperCase());
+    var tempAnswer = [answer[0], answer[1], answer[2], answer[3], answer[4]];
+
     if (input.length == 5) {
 
         if (input.toString() == answer.toString()) {
@@ -28,15 +31,20 @@ function check() {
         }
 
         for (var i = 0; i < 5; i++) {
-            if (answer[i] == input[i]) {
+            if (tempAnswer[i] == input[i]) {
                 var id = attempts + "-" + i;
                 document.getElementById(id).className += " green";
+                tempAnswer[i] = "-";
             }
+        }
 
-            else if (answer.includes(input[i])) {
+        for (var i = 0; i < 5; i++) {
+            if (tempAnswer.includes(input[i])) {
                 var id = attempts + "-" + i;
                 document.getElementById(id).className += " yellow";
-            } else {
+                tempAnswer[i] = "-";
+            }
+            else if (tempAnswer[i] != "-") {
                 var id = attempts + "-" + i;
                 document.getElementById(id).className = "letter";
             }
@@ -53,10 +61,8 @@ function check() {
 }
 
 function writeLetter(putin) {
-
     for (var i = 0; i < 5; i++) {
         var id = attempts + "-" + i;
-        // console.log(id);
         document.getElementById(id).innerHTML = putin[i];
     }
 

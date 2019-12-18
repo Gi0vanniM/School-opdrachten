@@ -15,8 +15,8 @@ body {
 
 #attempts {
     display: grid;
-    grid-template-columns: repeat(5, 100px);
-    grid-template-rows: repeat(5, 100px);
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(10, 50px);
     column-gap: 1px;
     row-gap: 1px;
     /* border: 1px solid black; */
@@ -31,7 +31,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
+    font-size: 25px;
     border-radius: 5px;
 }
 

@@ -6,7 +6,6 @@ var answer = [];
 
 
 function start() {
-    answer = Array.from(words[getRandom(0, words.length)].toUpperCase());
     attempts = 0;
 
     for (var row = 0; row < 5; row++) {
