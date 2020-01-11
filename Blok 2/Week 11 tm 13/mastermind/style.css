@@ -1,10 +1,14 @@
 
+html {
+    /* cursor: url('data:image/svg+xml;utf8, <svg fill="blue" height="32px" width="32px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <g> <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z"/> </g> </g> </svg>') 16 16, auto; */
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    margin: 0;
-    background-color: darkblue;
+    margin: 10px;
+    background-color: darkgray;
 }
 
 #game-container {
@@ -15,31 +19,63 @@ body {
 
 #attempts {
     display: grid;
-    grid-template-columns: repeat(4, 50px);
-    grid-template-rows: repeat(10, 50px);
+    grid-template-rows: repeat(12, 5ch);
     column-gap: 1px;
     row-gap: 1px;
-    /* border: 1px solid black; */
-    margin: auto;
-    width: 100%;
     justify-content: center;
 }
 
-.letter {
-    background-color: blue;
+.row {
+    display: grid;
+    grid-template-columns: repeat(6, 5ch);
+    column-gap: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.node {
+    background-color: gray;
     border: 2px solid black;
     display: flex;
-    align-items: center;
+    border-radius: 50%;
+    /* height: 80%;
+    width: 80%; */
+    display: flex;
+} 
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 5ch);
+    grid-template-rows: repeat(2, 5ch);
+    column-gap: 1px;
+    row-gap: 1px;
+    margin: auto;
     justify-content: center;
-    font-size: 25px;
-    border-radius: 5px;
 }
 
-.green {
-    background-color: green;
+.button {
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.button:hover {
+    border: 2px solid dimgray;
+}
+.pins {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 50%);
+}
+.pin {
+    background-color: gray;
+    border: 2px solid black;
+    /* display: flex; */
+    border-radius: 50%;
 }
 
-.yellow {
-    background-color: yellow;
-    border-radius: 50%
+.checkButton {
+    background-color: slategray;
+    padding: 0;
+    text-align: center;
+    color: white;
+
 }
