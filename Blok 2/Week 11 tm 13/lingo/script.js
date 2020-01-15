@@ -22,6 +22,8 @@ function start() {
 
 function check() {
     input = Array.from(document.getElementById("input-box").value.toUpperCase());
+
+    // maakt een temporary varuable aan
     var tempAnswer = [answer[0], answer[1], answer[2], answer[3], answer[4]];
 
     if (input.length == 5) {
@@ -31,9 +33,13 @@ function check() {
         }
 
         for (var i = 0; i < 5; i++) {
+            // checkt letter voor letter of een letter op de goede plaats staat
             if (tempAnswer[i] == input[i]) {
+                // ID div
                 var id = attempts + "-" + i;
+                // veranderd letter naar groen
                 document.getElementById(id).className += " green";
+                // veranderd letter naar een streepje zodat deze straks niet dubbel gechekt wordt
                 tempAnswer[i] = "-";
             }
         }

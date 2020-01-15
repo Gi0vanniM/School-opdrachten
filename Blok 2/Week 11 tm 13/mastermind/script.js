@@ -8,7 +8,7 @@ var selectedColor = null;
 
 var gameContainer = document.getElementById("game-container");
 
-// rood, blauw, groen, orangje, geel, bruin, zwart, wit
+// blue 0, red 1, green 2, orange 3, yellow 4, brown 5, black 6, white 7
 
 // CREATE DIVS
 for (var i = 11; i >= 0; i--) {
@@ -49,26 +49,57 @@ for (var i = 11; i >= 0; i--) {
 document.getElementById("row.0").style.backgroundColor = "gray";
 document.getElementById("button.0").style = "show";
 
+start();
+
 function start() {
     attempts = 0;
-
+    generateColorCode();
 }
 
 function check(row) {
-
-
-    if (input.toString() == answer.toString()) {
-        alert("Wow je hebt het geraden!");
+    var inputAnswer = [];
+    for (var i = 0; i < 4; i++) {
+        cell = document.getElementById(row + "." + i);
+        inputAnswer.push(cell.style.backgroundColor);
     }
+    if (inputAnswer.includes("")) {
+        alert("Input is te klein");
+    }
+    console.log(inputAnswer);
 
-    // check answer
-
-    putInColors(input);
-    if (attempts == 11) {
-        alert("Helaas je hebt de code niet geraden.")
+    if (answer.toString() == inputAnswer.toString()) {
+        alert("Je hebt de code geraden!");
+    } else {
+        var pinLoc = 0;
+        var tempInputAnswer = [inputAnswer[0].toString(), inputAnswer[1].toString(), inputAnswer[2].toString(), inputAnswer[3].toString()];
+        for (var i = 0; i < 4; i++) {
+            if (tempInputAnswer[i].toString() == answer[i].toString()) {
+                var pin = document.getElementById("pin." + row + "." + pinLoc);
+                pin.style.backgroundColor = "red";
+                tempInputAnswer[i] = "-";
+                console.log(i + " is correct");
+                pinLoc++;
+                for (var o = 0; o < 4; o++) {
+                    if (tempInputAnswer[o].toString() == answer[i]) {
+                        tempInputAnswer[o] = "-";
+                    }
+                }
+            }
+        }
+        for (var i = 0; i < 4; i++) {
+            if (answer.includes(tempInputAnswer[i])) {
+                var pin = document.getElementById("pin." + row + "." + pinLoc);
+                pin.style.backgroundColor = "white";
+                tempInputAnswer[i] = "-";
+                pinLoc++;
+            }
+        }
+        document.getElementById("row." + row).style.backgroundColor = "darkgray";
+        document.getElementById("row." + (row + 1)).style.backgroundColor = "gray";
+        document.getElementById("button." + row).style.visibility = "hidden";
+        document.getElementById("button." + (row + 1)).style = "show";
     }
     attempts++;
-
 }
 
 function selectColor(col) {
@@ -80,7 +111,9 @@ function selectColor(col) {
 
 function inputColor(location) {
     console.log(location.toString());
-    document.getElementById(location).style.backgroundColor = selectedColor;
+    if (location.charAt(0) == attempts) {
+        document.getElementById(location).style.backgroundColor = selectedColor;
+    }
 
     // loc++;
     //
@@ -95,6 +128,40 @@ function inputColor(location) {
     //         attempts++;
     //     }
     // }
+}
+
+function generateColorCode() {
+    answer = [];
+    while (answer.length != 4) {
+        var n = getRandom(0, 7);
+        if (!answer.includes(n)) {
+            answer.push(n);
+        }
+    }
+    for (var i = 0; i < answer.length; i++) {
+        answer[i] = numToColor(answer[i]);
+    }
+}
+// blue 0, red 1, green 2, orange 3, yellow 4, brown 5, black 6, white 7
+function numToColor(num) {
+    switch (num) {
+        case 0:
+            return "blue";
+        case 1:
+            return "red";
+        case 2:
+            return "green";
+        case 3:
+            return "orange"
+        case 4:
+            return "yellow";
+        case 5:
+            return "brown";
+        case 6:
+            return "black";
+        case 7:
+            return "white";
+    }
 }
 
 function getRandom(min, max) {
